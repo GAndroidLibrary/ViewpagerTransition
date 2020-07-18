@@ -73,13 +73,14 @@ public class DragLayout extends FrameLayout {
         bottomView = getChildAt(0);
         topView = getChildAt(1);
 
+//
         topView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 点击回调
                 int state = getCurrentState();
                 if (state == STATE_CLOSE) {
-                    // 点击时为初始状态，需要展开
+                    // 点击时为初始状态，需要展开 , sca: 滑动会触发监听 DragHelperCallback
                     if (mDragHelper.smoothSlideViewTo(topView, originX, dragTopDest)) {
                         ViewCompat.postInvalidateOnAnimation(DragLayout.this);
                     }
